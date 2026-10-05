@@ -102,5 +102,71 @@ axis image;
 colormap(gca, 'spring'); 
 
 
-figure('Name', 'Отображение эллипсоида', 'NumberTitle', 'off');
 
+
+
+figure('Name', 'Отображение гиперболического параболоида', ...
+    'NumberTitle', 'off');
+
+
+
+
+subplot(2, 2, 1);
+surf(X2, Y2, Z2); 
+
+shading interp;
+camlight('headlight')
+
+title('Свет сверху');
+xlabel('X'); ylabel('Y'); zlabel('Z');
+grid on;
+axis equal; 
+colormap(gca, 'cool'); 
+
+
+
+subplot(2, 2, 2);
+surf(X2, Y2, Z2); 
+
+shading interp;
+camlight('right')
+lighting gouraud
+view(30, 40)
+
+title('Свет справа');
+xlabel('X'); ylabel('Y'); zlabel('Z');
+grid on;
+axis equal; 
+colormap(gca, 'cool'); 
+
+
+
+subplot(2, 2, 3);
+surf(X2, Y2, Z2); 
+
+shading interp;
+lighting gouraud
+camlight('left')
+view(-60, 20)
+
+title('Свет слева');
+xlabel('X'); ylabel('Y'); zlabel('Z');
+grid on;
+axis equal; 
+colormap(gca, 'cool'); 
+
+
+
+subplot(2, 2, 4);
+surf(X2, Y2, Z2); 
+
+shading interp;
+lighting flat
+camlight(40,30)
+view(50, 50)
+
+title('Плоский свет');
+xlabel('X'); ylabel('Y'); zlabel('Z');
+grid on;
+axis equal; 
+colormap(gca, 'cool'); 
