@@ -146,3 +146,80 @@ end
 % % % % % % % % % % %  ЧАСТЬ C
 
 figure('Name','(c) В одних осях и в разных','Color','w');
+
+subplot(2, 2, 1);
+hold on;
+
+
+y2 = polyval(p, x1);
+% Характерные точки y2 (полином)
+x2zerosInd = find(diff(sign(y2)) ~= 0);
+x2zeros = x1(x2zerosInd);
+y2zeros = y2(x2zerosInd);
+
+x2minsTF = islocalmin(y2);
+x2maxesTF = islocalmax(y2);
+
+
+plot(x1,y1, 'k-', 'LineWidth', 0.5, 'DisplayName', 'Трансцендентная');
+plot(x1,y2, 'r-', 'LineWidth', 0.5, 'DisplayName', 'Полином');
+
+
+
+plotMarkers(x1zeros, y1zeros, -y2Offset, "zero:  ", 'm*')
+plotMarkers(x1(x1minsTF),y1(x1minsTF), y2Offset, "min:  ", 'r*')
+plotMarkers(x1(x1maxesTF),y1(x1maxesTF), -y2Offset, "max:  ",'b*')
+
+plotMarkers(x2zeros, y2zeros, y2Offset, "zero:  ", 'm*')
+plotMarkers(x1(x2minsTF),y2(x2minsTF), y2Offset, "min:  ", 'r*')
+plotMarkers(x1(x2maxesTF),y2(x2maxesTF), -y2Offset, "max:  ",'b*')
+
+title('График с отмеченными характерными точками');
+xlabel('x');
+ylabel('y');
+legend('Трансцендентная','Полином'); 
+
+
+subplot(2, 2, 2);
+hold on;
+
+plot(x1,y1, 'k-', 'LineWidth', 0.5, 'DisplayName', 'Трансцендентная');
+plot(x1,y2, 'r-', 'LineWidth', 0.5, 'DisplayName', 'Полином');
+
+plotMarkers(x2zeros, y2zeros, y2Offset, "zero:  ", 'm*')
+plotMarkers(x1(x2minsTF),y2(x2minsTF), y2Offset, "min:  ", 'r*')
+plotMarkers(x1(x2maxesTF),y2(x2maxesTF), -y2Offset, "max:  ",'b*')
+
+title('График с отмеченными характерными точками только у полинома');
+xlabel('x');
+ylabel('y');
+
+
+
+subplot(2, 2, 3);
+hold on;
+
+plot(x1,y1, 'k-', 'LineWidth', 0.5, 'DisplayName', 'Трансцендентная');
+plot(x1,y2, 'r-', 'LineWidth', 0.5, 'DisplayName', 'Полином');
+
+plotMarkers(x1zeros, y1zeros, -y2Offset, "zero:  ", 'm*')
+plotMarkers(x1(x1minsTF),y1(x1minsTF), y2Offset, "min:  ", 'r*')
+plotMarkers(x1(x1maxesTF),y1(x1maxesTF), -y2Offset, "max:  ",'b*')
+
+title('График с отмеченными характерными точками только у трансцендентной');
+xlabel('x');
+ylabel('y');
+
+
+
+subplot(2, 2, 4);
+hold on;
+
+plot(x1,y1, 'k-', 'LineWidth', 0.5, 'DisplayName', 'Трансцендентная');
+plot(x1,y2, 'r-', 'LineWidth', 0.5, 'DisplayName', 'Полином');
+
+title('График без характерных точек');
+xlabel('x');
+ylabel('y');
+
+
