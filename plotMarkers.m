@@ -5,7 +5,7 @@ function plotMarkers(markersX, markersY, yOffset, labelPrefix, markerStyle)
         
         fullLabelText = compose("%s (%.2f; %.2f)", labelPrefix, markersX(j), markersY(j));
        
-        plot([markersX(j), markersX(j)+0.001], [markersY(j), markersY(j) + yOffset], 'k-', 'LineWidth', 0.5)
+        plot([markersX(j), markersX(j)+0.001], [markersY(j), markersY(j) + yOffset], 'k-', 'LineWidth', 0.5);
         
         text(markersX(j), markersY(j) + yOffset, fullLabelText, ...
             'HorizontalAlignment', 'center', ...
@@ -14,3 +14,6 @@ function plotMarkers(markersX, markersY, yOffset, labelPrefix, markerStyle)
             'FontWeight', 'bold');
     end
 end
+
+
+
